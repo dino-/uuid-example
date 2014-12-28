@@ -1,35 +1,34 @@
 -- License: BSD3 (see LICENSE)
 -- Author: Dino Morelli <dino@ui3.info>
 
-{-# LANGUAGE OverloadedStrings #-}
-
-import Data.Char ( ord )
-import Data.UUID ( UUID (..), fromString, nil, toString )
+import Codec.Binary.UTF8.String ( encode )
+import Data.UUID ( UUID (..), nil, toString )
 import Data.UUID.V4 ( nextRandom )
 import Data.UUID.V5 ( generateNamed )
-import Data.Word ( Word8 )
-import Text.Printf
+import Text.Printf ( printf )
 
 
 main :: IO ()
 main = do
-   let inputNs = "FooBarBaz"
+   let inputNs = "made-up namespace string"
    let ns = mkUUID nil inputNs
-   putStrLn "namespace UUID:"
+   putStrLn "\nMaking a custom namespace UUID:"
    printf "%s: \"%s\"\n" (toString ns) inputNs
 
-   putStrLn "\nUsing that namespace for UUIDs (v5):"
-   let inputDino = "Dino"
-   printf "%s: \"%s\"\n" (toString $ mkUUID ns inputDino) inputDino
+   putStrLn "\nUsing that namespace to generate UUIDs (v5):"
+   let input1 = "dogs and cats"
+   printf "%s: \"%s\"\n" (toString $ mkUUID ns input1) input1
 
-   let inputBetty = "Betty"
-   printf "%s: \"%s\"\n" (toString $ mkUUID ns inputBetty) inputBetty
+   let input2 = "kangaroos and wallabees"
+   printf "%s: \"%s\"\n" (toString $ mkUUID ns input2) input2
 
    putStrLn "\nRandomly generated (v4):"
    putStrLn =<< toString `fmap` nextRandom
 
 
+{- There are several ways to do this, but a good idea is UTF8
+encoding (package utf8-string) which is less lossy than Char8
+to Word8.
+-}
 mkUUID :: UUID -> String -> UUID
-mkUUID ns str =
-   let input = map (fromIntegral . ord) str :: [Word8]
-   in generateNamed ns input
+mkUUID ns = generateNamed ns . encode
