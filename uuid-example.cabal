@@ -1,18 +1,17 @@
-name:                uuid-study
+name:                uuid-example
 version:             1.0
-synopsis:            Studying how to use the uuid library
-description:         Studying how to use the uuid library  
+synopsis:            uuid library usage example
+description:         Studying how to use the uuid library. Specifically for custom namespaces and converting the input from String to Word8.
 license:             BSD3
 license-file:        LICENSE
 author:              Dino Morelli
-maintainer:          dino@ui3.info
+maintainer:          Dino Morelli <dino@ui3.info>
 copyright:           2014 Dino Morelli
-category:            Study
+category:            Development, Education, Help
 build-type:          Simple
--- extra-source-files:  
 cabal-version:       >=1.10
 
-executable uuid-study
+executable uuid-example
    main-is:             uuid.hs
    build-depends:       base >=4.7 && <4.8,
                         utf8-string,
