@@ -3,7 +3,7 @@
 
 ## Synopsis
 
-Simple Data.UUID usage example
+Simple Data.UUID usage example (Haskell)
 
 
 ## Description
