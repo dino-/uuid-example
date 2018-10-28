@@ -14,14 +14,13 @@ of how this works in this project.
 
 ## Getting source
 
-- Get the source with darcs: `$ darcs get http://hub.darcs.net/dino/uuid-example`
-- If you're just looking, [browse the source](http://hub.darcs.net/dino/uuid-example)
+- Get the source with git: `$ git clone https://github.com/dino-/uuid-example`
+- If you're just looking, [browse the source](https://github.com/dino-/uuid-example)
 
 And once you have it, building the usual way:
 
-    $ cabal configure
-    $ cabal build
-    $ cabal run
+    $ stack build
+    $ stack exec uuid-example
 
 
 ## Contact
