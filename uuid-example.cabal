@@ -7,7 +7,7 @@ license:             BSD3
 license-file:        LICENSE
 author:              Dino Morelli
 maintainer:          Dino Morelli <dino@ui3.info>
-copyright:           2014 Dino Morelli
+copyright:           2014-2018 Dino Morelli
 category:            Development, Education, Help
 build-type:          Simple
 cabal-version:       >=1.10
